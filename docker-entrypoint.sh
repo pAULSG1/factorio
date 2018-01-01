@@ -13,6 +13,11 @@ mkdir -p $CONFIG
 
 #chown -R factorio /factorio
 
+if [ -r /tmp/firstrun.sh ]; then
+  sh -x /tmp/firstrun.sh
+  rm /tmp/firstrun.sh
+fi
+
 if [ ! -f $CONFIG/rconpw ]; then
   echo $(pwgen 15 1) > $CONFIG/rconpw
 fi
